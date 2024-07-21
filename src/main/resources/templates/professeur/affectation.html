@@ -1,0 +1,89 @@
+<th:block th:replace="layouts/header" />
+
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">AFFECTATION PROFESSEURS</span>
+                </head>
+                
+              
+                <section class="w-full">
+
+                    <div class=" ml-6 w-11/12 bg-white rounded-lg ">
+                        <div class="p-6 ">
+
+                            <form method="post" th:object="${affectation}" class=" grid grid-cols-3 gap-5 " action="#">
+                                <div>
+                                    <label for="annee" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Professeurs</label>
+                                    <select th:field="*{idprofesseur}" name="" id="annee" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="professeur : ${professeurs}" th:value="${professeur.id}" th:text="${#strings.toUpperCase(professeur.nom  + professeur.prenom )}" >PS21004</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="classe" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Classe</label>
+                                    <select th:field="*{idclasse}" name="" id="classe" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="classe : ${classes}" th:value="${classe.id}" th:text="${#strings.toUpperCase(classe.classe)}" >tc1</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="matiere" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Matiere</label>
+                                    <select th:field="*{idmatiere}" name="" id="matiere" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="matiere : ${matieres}" th:value="${matiere.id}" th:text="${#strings.toUpperCase(matiere.nom)}" >Chimie</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="coefficient" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Coefficient</label>
+                                    <input th:field="*{coefficient}" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 "  type="number" name="coefficient" id="coefficient">
+                                    <p th:if="${#fields.hasErrors('coefficient')}" th:errors="*{coefficient}" class="text-red-600" ></p>
+                                </div>
+                                <div  >
+                                    <label class="text-transparent block mb-2 text-sm font-medium " for="submit">submit</label>
+                                    <input type="submit" class="p-2.5 w-60 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700" value="valider">
+                                </div>
+                                <div th:if="${errorAffectationExist}">
+                                    <p class="text-red-600  block mb-2 text-sm font-medium  "  >WARNING :</p>
+                                    <p class="text-red-600"  th:text="${errorAffectationExist}"  ></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="w-full h-full bg-purple-500 flex pt-2 p-5 flex-col gap-5" >
+                    <span class="ml-1 mt-10 mr-1 w-full rounded h-0.5 bg-gray-400" ></span>
+                    <div>
+                        <table class=" flex flex-col gap-1 table-fixed w-full">
+                            <th>LISTE D'AFFECTATION</th>
+                            <tr class="flex flex-row mb-0.5 gap-0.5 w-full" >
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Matricule</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Nom</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Prenom</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Classe</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Matiere</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Type</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Coefficient</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Date</td>
+                            </tr>
+                            <tr class="flex flex-row mb-0.5 gap-0.5 w-full" th:each="affectation : ${affectations}" >
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.professeur.matricule}" >ES23ML0004</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.professeur.nom}" >NGUETSOP</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.professeur.prenom}" >LAURINE</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.classe.classe}" >feminin</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.matiere.nom}" >6 55 33 22 11</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.matiere.typeMatiere.nom}" >6 55 33 22 11</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${affectation.coefficient}" >6 55 33 22 11</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#dates.format(affectation.createdDate,'yyyy-MM-dd')}" >17/03/2001</td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+
+        <th:block th:replace="layouts/footer"/>
+    </body>
+</html>

@@ -1,0 +1,320 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap'); */
+
+:root{
+
+    /* ========== color =========== */
+    --bg-color:#f8f9fa;
+    --color-bg-bold:#cccccc;
+    --color-white:#ffffff;
+    --color-black-logo:#414143;
+    --color-white-logo:#c8c8ca;
+    --color-white-logo-reduce:#c8c8ca74;
+    --color-green-bold:#2d4f4e;
+    --color-green-medium:#345c54;
+    --color-green-yellow:#90ac46;
+    --color-yellow:#d3e543;
+    --color-red:#df7565;
+}
+
+
+
+*,
+*::before,
+*::after {
+	font-family: "Oswald", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+}
+
+.container {
+	height: 100vh;
+	width: 100vw;
+    padding: 1rem;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 2rem;
+    position: relative;
+}
+
+nav img{
+    position: absolute;
+	width: 100px;
+    transform: translate(10px,20px);
+	background-size: cover;
+    border-radius: 50px;
+}
+
+nav ul {
+	display: flex;
+	justify-content: flex-end;
+	flex: 1;
+	align-items: center;
+	padding-right: 40px;
+	text-align: right;
+	list-style-type: none;
+}
+
+ul li {
+	margin-right: 10px;
+}
+
+ul li a {
+	position: relative;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #fff;
+    font-weight: 600;
+	font-size: 16px;
+}
+
+ul li a:hover{
+	color: #f7e394;
+}
+
+.illustration{
+    display: block;
+    position: absolute;
+    width: 97vw;
+    left: 1%;
+    border-radius: 10px;
+    top: 20px;
+    height: 500px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.326) 0%,rgba(0, 0, 0, 0.339) 100%) ,url("/photo/img/curved-images/curved-11.jpg") center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px 0;
+    color: white;
+}
+
+section h1{
+    font-size: 3.5rem;
+}
+
+section p{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.sign-form{
+    width: 450px;
+    height: 650px;
+    margin-top: 100px;
+    margin-left: 37%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    position: relative;
+}
+
+.sign-form h2{
+    position: absolute;
+    top: 30px;
+    left: 34%;
+    color: var(--color-green-medium);
+
+}
+
+.sign-form .log{
+    position: absolute;
+    top: 100px;
+    left: 20%;
+    display: flex;
+    gap: 10px;
+}
+
+.sign-form .log .img{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: grid;
+    cursor: pointer;
+    place-items: center;
+}
+
+.sign-form span{
+    position: absolute;
+    top: 220px;
+    left: 47%;
+    color: #9f9e9e;
+    font-weight: 400;
+}
+
+.sign-form form{
+    position: absolute;
+    width: 90%;
+    height: 200px;
+    top: 285px;
+    left: 5%;
+}
+
+ .sign-form form .error{
+    position: absolute;
+    top: -45px;
+    left: 10%;
+    font-size: 0.9rem;
+    color: Red;
+    background-color: rgba(210, 107, 107, 0.556);
+    border-radius: 10px;
+   padding:0.6rem 1rem;
+}
+
+.sign-form form div{
+    margin-bottom: 1rem;
+}
+
+.sign-form form div input,.sign-form form div select{
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d2d6da;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.sign-form form div input:focus, .sign-form form div select:focus{
+    outline: none;
+}
+
+ .form-check {
+    display: flex;
+    padding-left: 1.73em;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.form-check label a{
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+#check {
+    display: none;
+  }
+  
+  input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px; 
+    background-image: linear-gradient(310deg, #141727 0%, #3A416F 100%);
+    border-radius: 4px; 
+  }
+  
+  input[type="checkbox"]:checked + label:before {
+    background-image: linear-gradient(310deg, blue 0%, blue 100%);
+  }
+  
+  input[type="checkbox"] + label:after {
+    content: '\2713'; 
+    position: absolute;
+    top: 50%;
+    left: 5px; 
+    transform: translateY(-50%);
+    color: #fff; 
+    font-size: 15px; 
+    display: none; 
+  }
+  
+  input[type="checkbox"]:checked + label:after {
+    display: block;
+  }
+
+input[type="submit"]{
+    text-transform: uppercase;
+    box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11), 0 2px 4px -1px rgba(0, 0, 0, 0.07);
+    background-size: 150%;
+    background-position-x: 25%;
+    width: 100%;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    background-image: linear-gradient(310deg, #141727 0%, #3A416F 100%);
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    margin-top: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease-in;
+}
+
+input[type="submit"]:hover{
+    transform: scale(1.05);
+}
+
+.foot-form{
+    color: #3a416fb2;
+    margin-top: 30px;
+}
+
+.foot-form a{
+    color: #3A416F;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.foot-nav{
+    display: flex;
+    list-style-type: none;
+    margin: 200px 30% 100px 30%;
+} 
+
+.foot-nav li a{
+    color: #3a416fc8;
+    font-size: 1.1rem;
+}
+
+.foot-text{
+    color: #3A416F;
+    margin: 100px 0 100px 40%;
+    height: 100px;
+}
+  
+

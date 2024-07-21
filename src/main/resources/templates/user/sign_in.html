@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" sizes="64x64" type="image/png" href="/photo/img/logo_fs.jpeg"> 
+    <title>SIGN IN</title>
+    <link rel="stylesheet" type="text/css" href="/css/sign_in.css">     
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="/photo/img/logo_ud.jpeg" alt="">
+                <img src="/photo/img/logo_fs.jpeg" alt="">
+            </div>
+            <nav>
+                <ul>
+                <li class="nav-item"><a href="#" >Acceuil</a></li>
+				<li class="nav-item"><a href="#" >AboutUs</a></li>
+				<li class="nav-item"><a href="/sign_up" >Sign Up</a></li>
+				<li class="nav-item"><a href="" >Sign In</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <div class="sign-form">
+                    <h1>Welcome back</h1>
+                    <p class="text" >Enter your email and password to sign in</p>
+                    <!-- <?php
+                        if (isset($error)) {
+                          echo $error;
+                        }
+                    ?>    -->
+                    <div th:if="${param.logout}">
+                        <p style="color: green;">You have been logged out successfully</p>
+                    </div>
+                    <div th:if="${param.error}">
+                        <p style="color: red;" th:text="${param.error}">You have been logged out successfully</p>
+                    </div>
+                    <p class="error text-red-600 font-bold" th:if="${error}" th:text="${error}"></p>
+                    <form id="form" method="POST" th:action="@{/login}">
+                        <div>
+                            <label for="username">Email :</label><br>
+                            <input  type="email" name="username" id="username" placeholder="exemple@gmail.com">
+                        </div>
+                        <div>
+                            <label for="password"> Password :</label><br>
+                            <input  type="password" name="password" id="password" placeholder="Password.....">
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" name="check-terms" id="check">
+                            <label for="check"> Remember me</label>
+                        </div>
+
+                        <input type="submit"  value="SIGN IN">
+
+                        <div class="foot-form">
+                            Don't have an account? <a href="/sign_up">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+            <aside>
+                <div class="img"></div>
+            </aside>
+        </main>
+        <ul class="foot-nav">
+            <li><a href="">Librairie</a></li>
+            <li><a href="">A propos</a></li>
+            <li><a href="">Team</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Products</a></li>
+        </ul>
+
+        <div class="foot-text">
+            Copyright © 2024 Soft by Creative Tim.
+        </div>
+    </div>
+    <script src="/js/sign_in.js"></script>
+</body>
+
+</html>

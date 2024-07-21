@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin</title>
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+<body >
+
+    <div class="px-4 flex flex-col gap-5 bg-white py-2.5 w-screen">
+        <section class="imprimer-quitter w-full flex justify-center items-center bg-blue-700 p-2.5">
+            <div class="w-2/5 flex justify-evenly items-center"> 
+                <a class="text-red-600 font-bold" href="/bultinnote/consultation"><i class="fa-solid fa-right-from-bracket"></i> Quitter</a>
+                <form action="/generate-pdf" method="post">
+                    <input type="hidden" name="id" th:value="${id}">
+                    <input type="hidden" name="periode" th:value="${periode}">
+                    <button class="text-green-600 font-bold" type="submit"><i class="fa-solid fa-print"></i> Imprimer</button>
+                </form>
+            </div>
+        </section>
+        <header class="w-full">
+            <table class="w-full">
+                <tr  class="w-full" >
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-5/12">
+                        <br>Ministere de l'education nationnal <br>
+                        de l'enseignement technique et de la formation<br>
+                        professionnel 
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-1/12">
+                        <img width="80"  th:src="@{'/images/' + ${ecole.logo}}" alt="">
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-3/12">
+                        <h1>BULLETIN DE NOTE </h1>
+                        <P th:text="${periode}">1ER trimestre</P>
+                        <P th:text="${ 'Annee academique' + #dates.format(ecole.annee,'yyyy')}" >annee academique 2022-2023</P>
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-3/12">
+                        Republique du cameroon<br>
+                        <br>Paix travail patrie
+                    </td>
+                </tr>
+                <tr  class="w-full" >
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-5/12">
+                        <p th:text="${'Etablissement : ' + ecole.nom}">Etablissement ML-SCHOOL </p>
+                        <p th:text="${'Email : ' + ecole.email}" >meail</p>
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-1/12">
+
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-3/12">
+                        <P th:text="${'Ville : ' + ecole.ville}" >1ER trimestre</P>
+                        <P th:text="${'Adresse : ' + ecole.adresse}" >1ER trimestre</P>
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold  bg-orange-500 border border-gray-600 w-3/12">
+                        <P th:text="${'Contact : ' + ecole.contact}" >1ER trimestre</P>
+                        <P th:text="${'Directeur : ' + ecole.directeur}" >1ER trimestre</P>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        <section>
+            <table class=" w-full">
+                <tr class="w-full">
+                    <td class="w-5/12 px-2.5 py-1.5 font-bold  border border-gray-600" >
+                        <h1 th:text="${eleve.nom +' ' + eleve.prenom}">TETGA KONA </h1>
+                        <h2 th:text="${'Matricule : ' + eleve.matricule}">mATRICULE : es2001562 </h2>
+                        <h2 th:text="${'Classe : ' + eleve.classe.classe}" >cLASSE : tc1</h2>
+                        <h2 th:text="${ 'EFFECTIF : ' + nombre}">EFFECTIF : 3 </h2>
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold w-4/12 border border-gray-600" >
+                        <h2 th:text="${'Sexe : ' + eleve.sexe }">TETGA KONA </h2>
+                        <h2 th:text="${'Date naissance :'+ eleve.dateNaissance}">mATRICULE : es2001562 </h2>
+                        <h2 th:text="${'Lieu naissance :'+ eleve.lieuNaissance}">mATRICULE : es2001562 </h2>
+                    </td>
+                    <td class=" px-2.5 py-1.5 font-bold w-3/12 border border-gray-600" >
+                        <img width="120" th:src="@{'/images/'+ ${eleve.photo}}" alt="image">
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <main class="w-full">
+            <table class="w-full">
+                <thead class="w-full">
+                    <tr class="w-full"> 
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-5/12 " >Matiere</th>
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-1/12 " >Moy/20</th>
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-1/12 " >Coef.</th>
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-1/12 " >Moy*Coef</th>
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-1/12 " >Rang</th>
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-1/12 " >Appreciation</th>
+                        <th class=" bg-blue-600 font-bold  border border-gray-600 w-2/12 " >Professeur</th>
+                    </tr>
+                </thead>
+                <tbody class="w-full" > 
+                    <tr th:each="litteraire : ${litteraires}" class="w-full">  
+
+                        <td th:text="${#strings.capitalize(litteraire.evaluation.affectation.matiere.nom)}" class=" font-light  border border-gray-600 w-5/12 " >informatique</td>
+                        <td th:text="${litteraire.evaluation.note}" class=" bg-orange-400 font-bold  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${litteraire.evaluation.affectation.coefficient}" class=" font-bold  border border-gray-600 w-1/12 " >5</td>
+                        <td th:text="${litteraire.evaluation.affectation.coefficient * litteraire.evaluation.note}" class="bg-orange-300 font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td th:text="${litteraire.rang}" class="  font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td th:text="${litteraire.appreciation}" class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td th:text="${litteraire.evaluation.affectation.professeur.nom}" class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr>
+                    
+                    <tr class="w-full">
+                        <td class=" text-center font-bold  border border-gray-600 w-5/12 " >BILLAN LITTERAIRE</td>  
+                        <td th:text="${bilanLitteraire.moyenne }" class="  bg-orange-400 font-bold  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${bilanLitteraire.totalCoefficient}" class=" font-bold  border border-gray-600 w-1/12 " >5</td>
+                        <td th:text="${bilanLitteraire.totalNote}" class="bg-orange-300  font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr>
+
+                    <tr th:each="scientifique : ${scientifiques}" class="w-full">
+
+                        <td th:text="${#strings.capitalize(scientifique.evaluation.affectation.matiere.nom)}" class=" font-bold  border border-gray-600 w-5/12 " >informatique</td>
+                        <td th:text="${scientifique.evaluation.note}" class=" bg-orange-400 font-bold  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${scientifique.evaluation.affectation.coefficient}" class=" font-bold  border border-gray-600 w-1/12 " >5</td>
+                        <td th:text="${scientifique.evaluation.affectation.coefficient * scientifique.evaluation.note}" class="bg-orange-300 font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td th:text="${scientifique.rang}" class="  font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td th:text="${scientifique.appreciation}" class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td th:text="${scientifique.evaluation.affectation.professeur.nom}" class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr>
+                    <tr class="w-full">
+                        <td class=" text-center font-bold  border border-gray-600 w-5/12 " >BILLAN SCIENTIQUE</td>
+                        <td th:text="${bilanScientifique.moyenne }" class="  bg-orange-400 font-bold  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${bilanScientifique.totalCoefficient}" class=" font-bold  border border-gray-600 w-1/12 " >5</td>
+                        <td th:text="${bilanScientifique.totalNote}" class="bg-orange-300  font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr >
+
+                    
+                    <tr th:each="autre : ${autres}" class="w-full">
+
+                        <td th:text="${#strings.capitalize(autre.evaluation.affectation.matiere.nom)}" class=" font-bold  border border-gray-600 w-5/12 " >informatique</td>
+                        <td th:text="${autre.evaluation.note}" class=" bg-orange-400 font-bold  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${autre.evaluation.affectation.coefficient}" class=" font-bold  border border-gray-600 w-1/12 " >5</td>
+                        <td th:text="${autre.evaluation.affectation.coefficient * autre.evaluation.note}" class=" bg-orange-300 font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td th:text="${autre.rang}" class="  font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td th:text="${autre.appreciation}" class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td th:text="${autre.evaluation.affectation.professeur.nom}" class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr>
+
+                    <tr class="w-full">
+                        <td class=" text-center font-bold  border border-gray-600 w-5/12 " >BILLAN AUTRE</td>
+                        <td th:text="${bilanAutre.moyenne }" class="  bg-orange-400 font-bold  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${bilanAutre.totalCoefficient}" class=" font-bold  border border-gray-600 w-1/12 " >5</td>
+                        <td th:text="${bilanAutre.totalNote}" class="bg-orange-300  font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr>
+                    <tr class="w-full">
+                        <td class=" font-bold  border border-gray-600 w-5/12 " >BILLAN GENERAL</td>
+                        <td th:text="${bilanGeneral.moyenne}" class=" bg-orange-400 font-bold text-red-600 font-blod  border border-gray-600 w-1/12 " >10</td>
+                        <td th:text="${bilanGeneral.totalCoef}" class="bg-orange-300 text-red-600 font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td th:text="${bilanGeneral.totalNote}" class="bg-orange-300 text-red-600 font-bold  border border-gray-600 w-1/12 " >57</td>
+                        <td th:text="${bilanGeneral.rang}" class=" font-bold text-red-600 border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-1/12 " ></td>
+                        <td class=" font-bold  border border-gray-600 w-2/12 " ></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <footer class="w-full">
+            <table class="w-full">
+                <tr class="w-full">
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Resultat de la classe </td>
+                    <td  class=" font-bold  border border-gray-600 w-1/6 ">Assiduite</td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Resultat de l'eleve</td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Mensions conseil de classe</td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Appreciation du conseil de classe </td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Cachet du chef de l'etablissement</td>
+                </tr>
+                <tr class="w-full">
+                    <td class=" font-bold flex flex-col gap-4 border border-gray-600 ">
+                        <div>
+                            <p>Moyenne</p>
+                            <p class="text-red-600" th:text="${'Max : ' + firstMoyenne}" >Max : </p>
+                        </div>
+                        <div>
+                            <p>Moyenne</p>
+                            <p class="text-red-600" th:text="${'Min : ' + lastMoyenne}" >Min : </p>
+                        </div>
+                        <div>
+                            <p>Moyenne</p>
+                            <p class="text-red-600" th:text="${'Classe : ' + classMoyenne}" >Classe : </p>
+                        </div>
+                    </td>
+                    <td  class=" font-bold  align-top  border border-gray-600 ">
+                        <div>
+                            <p>Total heure</p>
+                            <p class="text-red-600" th:text="${'Abscence : ' + abscences}" >Max : </p>
+                        </div>
+                        <div>
+                            <p>Total heure</p>
+                            <p class="text-red-600" th:text="${'Justifier : ' + abscenceJustifier}" >Min : </p>
+                        </div>
+                        <div>
+                            <p>Total heure</p>
+                            <p class="text-red-600" th:text="${'Non justifier : ' + abscenceNonJustifier}" >Classe : </p>
+                        </div>
+                    </td>
+                    <td class=" font-bold   border border-gray-600 ">
+                        <div>
+                            <p>Moyenne : </p>
+                            <p class="text-red-600" th:text="${bilanGeneral.moyenne}" >Max : </p>
+                        </div>
+                        <div>
+                            <p>Rang : </p>
+                            <p class="text-red-600" th:text="${bilanGeneral.rang}" >Min : </p>
+                        </div>
+                         
+                    </td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Mensions conseil de classe</td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Appreciation du conseil de classe </td>
+                    <td class=" font-bold  border border-gray-600 w-1/6 ">Cachet du chef de l'etablissement</td>
+                
+                </tr>
+            </table>
+        </footer>
+
+    </div>
+    
+</body>
+</html>

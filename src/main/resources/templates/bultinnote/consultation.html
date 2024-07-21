@@ -1,0 +1,49 @@
+<th:block th:replace="layouts/header"/>
+
+
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">CONSULTATION DES BULTINS DE NOTES</span>
+                </head>
+                
+              
+                <section class="w-full">
+
+                    <div class=" ml-6 w-11/12 bg-white rounded-lg ">
+                        <div class="p-6 ">
+
+                            <form class=" grid grid-cols-3 gap-5 " method="post" action="/bultinnote/bulletin">
+                                <div>
+                                    <label for="eleve" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Eleves</label>
+                                    <select name="id" id="eleve" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="eleve : ${eleves}" th:value="${eleve.id}" th:text="${eleve.matricule + ' - ' + eleve.nom + ' ' + eleve.prenom}">22S73742</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="periode" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Periode</label>
+                                    <div>
+                                        <select id="periode" name="periode"
+                                            class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5">
+                                            <option value="1er-trimestre">1er Trimestre</option>
+                                            <option value="2eme-trimestre">2eme Trimestre</option>
+                                            <option value="2eme-trimestre">3eme Trimestre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div></div>
+                                <input type="submit" class="p-2.5 w-60 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700" value="valider">
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+            </main>
+        </div>
+
+        <th:block th:replace="layouts/footer"/>
+
+    </body>
+</html>

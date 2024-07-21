@@ -1,0 +1,79 @@
+<th:block th:replace="layouts/header"/>
+
+
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">CONSULTATION DES MOYENNES</span>
+                </head>
+                
+              
+                <section class="w-full">
+
+                    <div class=" ml-6 w-11/12 bg-white rounded-lg ">
+                        <div class="p-6 ">
+
+                            <form class=" grid grid-cols-3 gap-5 " method="post" action="">
+                                <div>
+                                    <label for="classe" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Classe</label>
+                                    <select  name="idclasse" id="classe" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="classe : ${classes}" th:value="${classe.id}" th:text="${#strings.toUpperCase(classe.classe)}" >tc1</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="periode" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Periode</label>
+                                    <div>
+                                        <select id="periode" name="periode"
+                                            class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5">
+                                            <option value="1er-trimestre">1er Trimestre</option>
+                                            <option value="2eme-trimestre">2eme Trimestre</option>
+                                            <option value="2eme-trimestre">3eme Trimestre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div></div>
+                                <input type="submit" class="p-2.5 w-60 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700" value="valider">
+                                <div th:if="${error}">
+                                    <p class="text-red-600 font-bold" th:text="${error}"></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <div th:if="${moyennes}" class="w-full h-full bg-purple-500 flex pt-2 p-5 flex-col gap-5" >
+                    <span class="ml-1 mt-10 mr-1 w-full rounded h-0.5 bg-gray-400" ></span>
+                    <div>
+                        <table class=" flex flex-col gap-1 table-fixed w-full">
+                            <th>LISTE DES NOTE moyenne</th>
+                            <tr class="flex flex-row mb-0.5 gap-0.5 w-full" >
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Matricule</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Nom</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Prenom</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Total</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Moyenne</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Coefficients</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Professeur</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Rang</td>
+                            </tr>
+                            <tr th:each="moyenne : ${moyennes}" class="flex flex-row mb-0.5 gap-0.5 w-full" >
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.evaluation.eleve.matricule)}">ES23ML0004</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.evaluation.eleve.nom)}" >NGUETSOP</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.evaluation.eleve.prenom)}" >NGUETSOP</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.total)}" >16</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.moyenne)}" >16</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.coefficients)}">10</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#strings.toUpperCase(moyenne.evaluation.affectation.professeur.nom)}" >meli</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${moyenne.rang}" >16 eme</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+        <th:block th:replace="layouts/footer"/>
+    </body>
+</html>

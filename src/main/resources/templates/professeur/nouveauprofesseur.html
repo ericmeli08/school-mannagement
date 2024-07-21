@@ -1,0 +1,173 @@
+<th:block th:replace="layouts/header" />
+
+
+        <div class="flex flex-col overflow-auto w-full bg-purple-500">
+
+            <head>
+                <span class="p-5 text-xl text-gray-600 font-bold">NOUVEAU PROFESSEUR</span>
+            </head>
+            <section class="w-full">
+                <div class="flex flex-row gap-10 w-full px-6 py-8">
+
+                    <form method="post" enctype="multipart/form-data" th:object="${professeurDto}"
+                        class=" w-full flex gap-5 ">
+                        <div class=" p-4 w-5/6 bg-white rounded-lg ">
+                            <div class=" w-full grid gap-3 grid-cols-2">
+
+                                <div>
+                                    <label for="nom" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Nom</label>
+                                    <div>
+                                        <input th:field="${professeurDto.nom}" type="text" name="nom" id="nom"
+                                            class=" w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1 "
+                                            placeholder="nom">
+                                        <p th:if="${#fields.hasErrors('nom')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.nom}"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Prenom</label>
+                                    <div>
+                                        <input type="text" th:field="${professeurDto.prenom}" name="prenom" id="prenom"
+                                            class=" w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1 "
+                                            placeholder="Prenom">
+                                        <p th:if="${#fields.hasErrors('prenom')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.prenom}"></p>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <label for="adresse" class="block mb-2 text-sm font-medium text-gray-900">
+                                        adresse</label>
+                                    <div>
+                                        <input type="text" th:field="${professeurDto.adresse}" name="adresse" id="adresse"
+                                            class=" w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1 "
+                                            placeholder="adresse">
+                                        <p th:if="${#fields.hasErrors('adresse')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.adresse}"></p>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
+                                        email</label>
+                                    <div>
+                                        <input th:field="${professeurDto.email}" type="email" name="email" id="email"
+                                            class=" w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1 "
+                                            placeholder="exemple@gmail.com">
+                                        <p th:if="${#fields.hasErrors('email')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.email}"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="contact" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Contact</label>
+                                    <div>
+                                        <input th:field="${professeurDto.contact}" type="number" name="contact" id="contact"
+                                            class=" w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1 "
+                                            placeholder="6 81 96 09 30">
+                                        <p th:if="${#fields.hasErrors('contact')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.contact}"></p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="date" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Date anniverssaire</label>
+                                    <div>
+                                        <input type="date" th:field="*{dateNaissance}" id="date"
+                                            class=" w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1 ">
+                                        <p th:if="${#fields.hasErrors('dateNaissance')}" th:errorclass="text-red-500"
+                                            th:errors="*{dateNaissance}"></p>
+
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <label for="sexe" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Sexe</label>
+                                    <div>
+                                        <select th:field="${professeurDto.sexe}" name="sexe" id="sexe"
+                                            class="w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-1 ">
+                                            <option value="homme">homme</option>
+                                            <option value="femme">femme</option>
+                                        </select>
+                                        <p th:if="${#fields.hasErrors('sexe')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.sexe}"></p>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="statut" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Status</label>
+                                    <div>
+                                        <select th:field="${professeurDto.statut}" name="statut" id="statut"
+                                            class="w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-1 ">
+                                            <option value="Marie">Marie</option>
+                                            <option value="Celibataire">Celibataire</option>
+                                            <option value="Divorce">Divorce</option>
+                                            <option value="En couple">En couple</option>
+                                        </select>
+                                        <p th:if="${#fields.hasErrors('statut')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.statut}"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="lieu-naissance"
+                                        class="block mb-2 text-sm font-medium text-gray-900 ">Lieu naissance</label>
+                                    <div>
+                                        <input th:field="${professeurDto.lieuNaissance}" type="text" name="lieuNaissance"
+                                            id="lieu-naissance" placeholder="Douala"
+                                            class="w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-1">
+                                        <p th:if="${#fields.hasErrors('lieuNaissance')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.lieuNaissance}"></p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="annee" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Annee scolaire</label>
+                                    <div>
+                                        <input type="date" th:field="${professeurDto.annee}" name="annee" id="annee"
+                                            class="w-full rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-1 ">
+
+                                        <p th:if="${#fields.hasErrors('annee')}" th:errorclass="text-red-500"
+                                            th:errors="${professeurDto.annee}"></p>
+                                    </div>
+                                </div>
+                                <div class="grid gap-2 grid-cols-2">
+
+                                    <button type="submit"
+                                        class="h-2/3 p-1 mt-5 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700">
+                                        Enregister </button>
+                                    <button type="button" href="/eleve/listeleve"
+                                        class=" h-2/3 p-1 mt-5 rounded-xl font-bold ease-in hover:bg-red-900 duration-500 bg-red-500">
+                                        Cancel</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-5 justify-center items-center bg-white rounded-lg w-96 h-80 ">
+                            <div
+                                class=" flex items-center justify-center rounded-full border-4 border-blue-800 bg-gray-400 w-24 h-24">
+                                <i class="fa-solid fa-user fa-3x"></i>
+                            </div>
+                            <label
+                                class="rounded text-center font-bold  w-24 h-10 hover:bg-blue-900 duration-300 cursor-pointer bg-blue-600 p-1"
+                                for="photo">Select</label>
+                            <input th:field="${professeurDto.photo}" type="file" name="photo" id="photo" class="hidden" />
+                            <p th:if="${#fields.hasErrors('photo')}" th:errorclass="text-red-500"
+                                th:errors="${professeurDto.photo}"></p>
+                            <p class="p-3">A son image, Dieu nous a créés libres</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            </div>
+        </main>
+    </div>
+    <th:block th:replace="layouts/footer"/>
+</body>
+
+</html>

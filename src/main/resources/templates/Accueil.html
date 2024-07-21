@@ -1,0 +1,73 @@
+<th:block th:replace="layouts/header" />
+
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">TABLEAU DE BORD</span>
+                </head>
+                <section class="p-5 gap-3 grid grid-cols-4">
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                    <div class="w-full h-20  gap-4 bg-orange-500 flex flex-row" ><div class="bg-orange-700 p-2 w-20 h-full"><img th:src="@{/photo/icon/books.png}" alt=""></div><div class="p-1"><p class="font-bold" >ELEVES</p><p class="font-bold">11</p></div></div>
+                </section>
+                <foot class="flex flex-row p-5 gap-7">
+                    <div class="w-full h-96 bg-white flex p-5 flex-col gap-5" >
+                        <span class="p-3 font-bold text-base">Total des eleves par classe</span> 
+                        <span class="ml-1 mr-1 w-80 rounded h-0.5 bg-gray-400" ></span>
+                        <div>
+                            <table class=" flex flex-col gap-0 table-fixed w-80">
+                                <tr class="flex flex-row gap-0.5 w-full" >
+                                    <td class="font-bold pl-4 bg-orange-500 w-4/5 " >Classe</td>
+                                    <td class="font-bold pl-4 bg-orange-500 w-1/5  " >Total</td>
+                                </tr>
+                                <tr th:each="classeEleve : ${classeEleves}" class=" flex flex-row gap-0.5 w-full" >
+                                    <td th:text="${classeEleve.classe}" class=" font-medium pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-4/5 " >TC1</td>
+                                    <td th:text="${classeEleve.eleves}" class=" font-medium pl-4  bg-blue-500 w-1/5 border-l-gray-300 border-b-gray-300" >17</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="w-full h-96 bg-white flex p-5 flex-col gap-5" >
+                        <span class="p-3 font-bold text-base">Total des professeurs par classe</span> 
+                        <span class="ml-1 mr-1 w-80 rounded h-0.5 bg-gray-400" ></span>
+                        <div>
+                            <table class=" flex flex-col gap-0 table-fixed w-80">
+                                <tr class="flex flex-row gap-0.5 w-full" >
+                                    <td class="font-bold pl-4 bg-orange-500 w-4/5 " >Classe</td>
+                                    <td class="font-bold pl-4 bg-orange-500 w-1/5  " >Total</td>
+                                </tr>
+                                <tr th:each="classeProfesseur : ${classeProfesseurs}" class=" flex flex-row gap-0.5 w-full" >
+                                    <td th:text="${classeProfesseur.classe}" class=" font-medium pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-4/5 " >TC1</td>
+                                    <td th:text="${classeProfesseur.professeurs}" class=" font-medium pl-4  bg-blue-500 w-1/5 border-l-gray-300 border-b-gray-300 " >17</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="w-full h-96 bg-white flex p-5 flex-col gap-5" >
+                        <span class="p-3 font-bold text-base">Eleves en solde ou acompte par classe</span> 
+                        <span class="ml-1 mr-1 w-80 rounded h-0.5 bg-gray-400" ></span>
+                        <div>
+                            <table class=" flex flex-col gap-0 table-fixed w-80">
+                                <tr class="flex flex-row gap-0.5 w-full" >
+                                    <td class="font-bold pl-4 bg-orange-500 w-3/6 " >Classe</td>
+                                    <td class="font-bold pl-4 bg-orange-500 w-2/6  " >Solde</td>
+                                    <td class="font-bold pl-4 bg-orange-500 w-2/6 " >Acompte</td>
+                                </tr>
+                                <tr th:each="classeSoldeAcompte : ${classeSoldeAcomptes}" class=" flex flex-row gap-0.5 w-full" >
+                                    <td th:text="${classeSoldeAcompte.classe}" class=" font-medium pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-3/6 " >TC1</td>
+                                    <td th:text="${classeSoldeAcompte.solde}" class=" font-medium pl-4  bg-blue-500 w-2/6 " >17</td>
+                                    <td th:text="${classeSoldeAcompte.acompte}" class=" font-medium pl-4  bg-blue-500 w-2/6 " >17</td>
+                                </tr>
+                            </table> 
+                        </div>
+                    </div>
+                </foot>
+            </main>
+        </div>
+
+        <th:block th:replace="layouts/footer"/>
+    </body>
+</html>

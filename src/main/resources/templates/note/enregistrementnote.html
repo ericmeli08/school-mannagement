@@ -1,0 +1,106 @@
+<th:block th:replace="layouts/header"/>
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">ENREGISTREMENT NOTES</span>
+                </head>
+                
+              
+                <section class="w-full">
+
+                    <div class=" ml-6 w-11/12 bg-white rounded-lg ">
+                        <div class="p-6 ">
+
+                            <form class=" grid grid-cols-3 gap-5 " th:object="${affectation}" action="#" method="post">
+                                <div>
+                                    <label for="classe" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Classe</label>
+                                    <select th:field="*{idclasse}" name="" id="classe" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="classe : ${classes}" th:value="${classe.id}" th:text="${#strings.toUpperCase(classe.classe)}" >tc1</option>
+                                    </select>
+                                </div>
+                               
+                                <div>
+                                    <label for="matiere" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Matiere</label>
+                                    <select th:field="*{idmatiere}" name="" id="matiere" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5 " >
+                                        <option th:each="matiere : ${matieres}" th:value="${matiere.id}" th:text="${#strings.toUpperCase(matiere.nom)}" >Chimie</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="date" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Date</label>
+                                    <input type="date" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5"  id="date" name="date">
+                                </div>
+                                <div>
+                                    <label for="periode" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Periode</label>
+                                    <div>
+                                        <select  name="periode" id="periode"
+                                            class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5">
+                                            <option value="1er-trimestre">1er Trimestre</option>
+                                            <option value="2eme-trimestre">2eme Trimestre</option>
+                                            <option value="2eme-trimestre">3eme Trimestre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                               
+                                <div>
+                                    <label for="" class="block mb-2 text-sm font-medium text-gray-900"></label>
+                                    <input type="submit" class="p-2.5 w-60 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700" value="valider">
+                                </div>
+                                <div th:if="${errorAffectation}">
+                                    <p class="text-red-600 font-bold" th:text="${errorAffectation}"></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section th:if="${eleves}" class="mt-8 w-8/12  ">
+
+                    <div class=" ml-6 w-11/12 bg-white rounded-lg ">
+                        <div class="p-6 ">
+                            <h2>Liste des eleves sans note</h2>
+                            <form class=" flex flex-col gap-5 " action="/note/registernote" method="post">
+                                <!-- <div class="flex gap-5 "> 
+                                    <div>
+                                        <label for="date" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Date</label>
+                                        <input type="date" class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5"  id="date" name="date">
+                                    </div>
+                                    <div>
+                                        <label for="periode" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Periode</label>
+                                        <div>
+                                            <select  name="periode" id="periode"
+                                                class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5">
+                                                <option value="1er-trimestre">1er Trimestre</option>
+                                                <option value="2eme-trimestre">2eme Trimestre</option>
+                                                <option value="2eme-trimestre">3eme Trimestre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div th:each="eleve : ${eleves}" class=" flex gap-5 ">
+                                    <label th:text="${eleve.matricule + ' ' + eleve.nom +' ' + eleve.prenom}" for="matricule" class="block w-80 mb-2 text-sm font-medium text-gray-900">
+                                        Matricule</label>
+                                    <div>
+                                        <input  type="number" step="0.01" th:name="'notes[' + ${eleve.id} + ']' "
+                                            id="matricule"
+                                            class="w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 p-2.5">
+                                    </div>
+                                </div>
+                                <input type="hidden" name="date" th:value="${date}" >
+                                <input type="hidden" name="periode" th:value="${periode}" >
+                                <input type="hidden" name="idclasse" th:value="${affectation.idclasse}" >
+                                <input type="hidden" name="idmatiere" th:value="${affectation.idmatiere}" >
+                                <input type="submit" class="p-2.5 w-60 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700" value="valider">
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+            </main>
+        </div>
+
+        <th:block th:replace="layouts/footer"/>
+    </body>
+</html>

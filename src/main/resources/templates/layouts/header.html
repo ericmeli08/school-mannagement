@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" sizes="64x64" type="image/png" href="/photo/img/logo_fs.jpeg"> 
+    <title>INSCRIPTION</title>
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+
+<body >
+    <div 
+        class="absolute pl-3 pt-2 w-16 duration-300 cursor-pointer ease-in h-10 bg-black opacity-50 rounded-bl-full rounded-tl-full right-0 top-10 hover:opacity-90 ">
+        <i class="fa-solid fa-gear fa-2xl" ></i>
+    </div>
+    <div class="flex flex-row h-screen overflow-hidden w-full relative ">
+        <aside class="flex flex-col h-screen overflow-x-hidden overflow-y-auto gap-5 bg-gradient-to-r from-blue-500 to-green-500  p-4 w-1/5 ">
+            <div class="flex flex-row items-center gap-4">
+                <div class=" rounded-full w-20 h-20 bg-white ">
+                    <img class="rounded-full w-20 h-20 border-4 border-blue-800" src="/photo/images/p1.jpg" alt="">
+                </div>
+                <div>
+                    <p class="font-black text-xl">MELI ERIC</p>
+                    <p class="font-bold text-xs"> fouegangmeli@gmail.com</p>
+                </div>
+            </div>
+            <div>
+                <ul class="flex flex-col gap-5">
+                    <li class="flex flex-row justify-between  items-center"><a
+                            class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                            href="/accueil"><i class="fas fa-house-chimney"></i>Accueil</a></li>
+                    <li class="menu-li cursor-pointer  flex  flex-col  relative  ">
+                        <div class="flex flex-row justify-between items-center" >
+                                <div class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                                    ><i class="fas fa-user-graduate"></i> Eleves</div><i class="fas fa-angle-down text-white "
+                                    ></i>
+                                
+                        </div>
+                            <ul class=" w-96 h-0 overflow-hidden duration-500  rounded-xl bg-white sub-menu  flex flex-col gap-1  pl-14  before:bg-red-600  ">
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/eleve/inscription">Inscription</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/eleve/listeleve">Liste eleves</a></li>
+                            </ul>
+                        
+                    </li>
+                    <li class="menu-li cursor-pointer  flex  flex-col  relative  ">
+                        <div class="flex flex-row justify-between items-center" >
+                                <div class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                                    ><i class="fas fa-money-bill-1-wave"></i> Scolarite</div><i class="fas fa-angle-down text-white "
+                                    ></i>
+                                
+                        </div>
+                            <ul class=" w-96 h-0 overflow-hidden duration-500  rounded-xl bg-white sub-menu  flex flex-col gap-1  pl-14  before:bg-red-600  ">
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/scolarite/nouveaureglement">Nouveau payement</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/scolarite/listelevepayement">Liste de payement</a></li>
+                            </ul>
+                        
+                    </li>
+                    <li class="menu-li cursor-pointer  flex  flex-col  relative  ">
+                        <div class="flex flex-row justify-between items-center" >
+                                <div class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                                    ><i class="fa-solid fa-user-tie"></i> Professeur</div><i class="fas fa-angle-down text-white "
+                                    ></i>
+                                
+                        </div>
+                            <ul class=" w-96 h-0  overflow-hidden duration-500  rounded-xl bg-white sub-menu  flex flex-col gap-1  pl-14  before:bg-red-600  ">
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/professeur/nouveauprofesseur">Nouveau professeur</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/professeur/listprofesseur">Liste de professeur</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/professeur/affectation">Affectation</a></li>
+                            </ul>
+                        
+                    </li>
+                    <li class="menu-li cursor-pointer  flex  flex-col  relative  ">
+                        <div class="flex flex-row justify-between items-center" >
+                                <div class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                                    ><i class="fa-solid fa-book-bookmark"></i> Abscence de eleves</div><i class="fas fa-angle-down text-white "
+                                    ></i>
+                                
+                        </div>
+                            <ul class=" w-96 h-0  overflow-hidden duration-500  rounded-xl bg-white sub-menu  flex flex-col gap-1  pl-14  before:bg-red-600  ">
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/abscenceeleve/enregistrement">Enregistrer</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/abscenceeleve/consultation">Consultation</a></li>
+                            </ul>
+                        
+                    </li>
+                    <li class="menu-li cursor-pointer  flex  flex-col  relative  ">
+                        <div class="flex flex-row justify-between items-center" >
+                                <div class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                                    ><i class="fa-regular fa-bookmark"></i> Notes</div><i class="fas fa-angle-down text-white "
+                                    ></i>
+                                
+                        </div>
+                            <ul class=" w-96 h-0  overflow-hidden duration-500  rounded-xl bg-white sub-menu  flex flex-col gap-1  pl-14  before:bg-red-600  ">
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/note/consultationevaluation">Consultation evaluation</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/note/consultationmoyenne">Consultation moyenne</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/note/enregistrementnote">Enregistrement note</a></li>
+                            </ul>
+                        
+                    </li>
+                   
+                    <li class=" flex flex-row justify-between items-center relative  "><a
+                            class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                            href="/bultinnote/consultation"><i class="fa-solid fa-receipt"></i> Buletin de notes</a>
+                    </li>
+                
+                    <li class="menu-li cursor-pointer  flex  flex-col  relative  ">
+                        <div class="flex flex-row justify-between items-center" >
+                                <div class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                                    ><i class="fa-solid fa-gear"></i> Parametre</div><i class="fas fa-angle-down text-white "
+                                    ></i>
+                                
+                        </div>
+                            <ul class=" w-96 h-0  overflow-hidden duration-500  rounded-xl bg-white sub-menu  flex flex-col gap-1  pl-14  before:bg-red-600  ">
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/parametre/ecole">Ecole</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/note/consultationmoyenne">Consultation moyenne</a></li>
+                                <li><a class="text-black font-bold opacity-70 hover:opacity-100 " href="/note/enregistrementnote">Enregistrement note</a></li>
+                            </ul>
+                        
+                    </li>
+                    <li class=" flex flex-row justify-between items-center relative  "><a
+                            class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6"
+                            href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Deconnection</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-white font-medium">&copy; 2023</span>
+                <span class="text-red-500 font-medium">Administration ML-SCHOOL</span>
+            </div>
+        </aside>
+
+        <main class="flex flex-col overflow-auto w-4/5 bg-purple-500">
+
+
+       

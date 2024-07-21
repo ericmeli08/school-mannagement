@@ -1,0 +1,54 @@
+<th:block th:replace="layouts/header" />
+
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">LISTE DES ELEVES</span>
+                </head>
+                <section class="flex flex-row w-full gap-10 justify-center items-center" >
+                    <div>
+                        <input type="text" name="serach" id="search" placeholder="Entrez le nom...." class="w-64 h-10 p-1 border-2 border-blue-600 rounded-xl" >
+                        <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+                    </div>
+                    <a href="/eleve/listeleve" class="p-2.5 rounded-lg  text-white hover:bg-green-500 align-middle  text-center bg-green-700 w-40 h-10">Liste des eleves</a>
+                    <a href="/eleve/listclasse" class="p-2.5 rounded-lg text-white hover:bg-green-500 align-middle  text-center bg-green-700 w-40 h-10">Liste par classe</a>
+                    <a href="/eleve/listperiode" class="p-2.5 rounded-lg  text-white hover:bg-green-500 align-middle  text-center bg-green-700 w-40 h-10">Liste par periode </a>
+                </section>
+              
+                <div class="w-full h-full bg-purple-500 flex pt-2 p-5 flex-col gap-5" >
+                    <span class="ml-1 mt-10 mr-1 w-full rounded h-0.5 bg-gray-400" ></span>
+                    <div>
+                        <table class=" flex flex-col gap-1 table-fixed w-full">
+                            <th>STUDENT LIST</th>
+                            <tr class="flex flex-row mb-0.5 gap-0.5 w-full" >
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Matricule</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Nom</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Prenom</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Sexe</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Contact</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Photo</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Classe</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Date naissance</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >action</td>
+                            </tr>
+                            <tr class="flex flex-row mb-0.5 gap-0.5 w-full" th:each="eleve : ${eleves}" >
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.matricule}" >ES23ML0004</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.nom}" >NGUETSOP</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.prenom}" >LAURINE</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.sexe}" >feminin</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.contact}" >6 55 33 22 11</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm "  ><img width="80"  th:src="@{'/images/' + ${eleve.photo}}" alt=""></td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.classe.classe}" >TC1</td>
+                                <!-- <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#dates.format(eleve.dateNaissance,'yyyy/MM/dd')}" >17/03/2001</td> -->
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#dates.format(eleve.dateNaissance,'yyyy-MM-dd')}" >17/03/2001</td>
+                                <!-- <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${eleve.dateNaissance}" >17/03/2001</td> -->
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300 flex justify-evenly gap-3 bg-white w-1/6 text-sm " > <a th:href="@{/eleve/edit(id=${eleve.id})}" class="text-green-500" ><i class="fa-regular fa-pen-to-square fa-xl "></i></a> <a th:href="@{/eleve/delete(id=${eleve.id})}" class="text-red-500" onclick="return confirm('Are you sure?')" ><i class="fa-regular fa-trash-can fa-xl"></i></a></td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <th:block th:replace="layouts/footer"/>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" smlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Creation d'un nouveau administrateur</title>
+        <link rel="stylesheet" href="/css/tailwind.css">
+        <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+    </head>
+    <body >
+        <div class="absolute pl-3 pt-2 w-16 duration-300 cursor-pointer ease-in h-10 bg-black opacity-50 rounded-bl-full rounded-tl-full right-0 top-10 hover:opacity-90 "><i class="fa-solid fa-gear fa-2xl" style="color:#ffffff;"></i></div>
+        <div class="flex flex-row w-full h-screen overflow-hidden">
+            <aside class="flex flex-col gap-5 bg-gradient-to-r from-blue-500 to-green-500 p-4 w-1/5 h-screen">
+                <div class="flex flex-row items-center gap-4">
+                    <div class=" rounded-full border-4 border-blue-800 bg-white w-20 h-20">
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p class="font-black text-xl">MELI ERIC</p>
+                        <p class="font-bold text-xs"> fouegangmeli@gmail.com</p>
+                    </div>
+                </div>
+                <div>
+                    <ul  class="flex flex-col gap-5">
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-house" style="color: #ffffff;"></i>Accueil</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fas fa-user-graduate"></i> Eleves</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fas fa-money-bill-1-wave"></i> Scolarite</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-user-tie"></i> Professeurs</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fas fa-book" ></i> Cahier de text</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-regular fa-bookmark"></i> Notes</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-receipt"></i> Bultins de notes</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-book-bookmark"></i> Abscences des eleves</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-gear"></i> Parametre</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-right-from-bracket"></i> Deconnection</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                        <li class="flex flex-row justify-between items-center"><a class="flex items-center flex-row gap-5 hover:text-blue-600 text-white font-medium ml-6" href=""><i class="fa-solid fa-arrow-rotate-right"></i> Reload</a><i class="fas fa-angle-down " style="color:#ffffff;" ></i></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-white font-medium" >&copy; 2023</span>
+                    <span class="text-red-500 font-medium">Administration ML-SCHOOL</span>
+                </div>
+            </aside>
+        <main class="flex flex-col w-4/5 h-screen bg-purple-500">
+
+            <head>
+                <span class="p-5 text-xl text-gray-600 font-bold">Creation d'un nouveau administrateur</span>
+            </head>
+            <section class="w-full">
+                <div class="flex flex-row gap-10 px-6 py-8">
+                    <div class=" w-full bg-white rounded-lg ">
+                        <div class="p-6 ">
+
+                            <form class=" grid gap-5 grid-cols-2" action="#">
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Matricule</label>
+                                    <input type="email" name="email" id="email"
+                                        class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                        placeholder="matricule" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Nom</label>
+                                    <input type="email" name="email" id="email"
+                                        class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                        placeholder="name" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Email</label>
+                                    <input type="email" name="email" id="email"
+                                        class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                        placeholder="name" required>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-5 justify-center items-center bg-white rounded-lg w-96 h-80 ">
+                        <div class=" rounded-full border-4 border-blue-800 bg-white w-24 h-24">
+                            
+                        </div>
+                        <label for="file" class="rounded text-center w-24 h-10 bg-blue-600 p-2.5 " > Select</label>
+                         <input type="file" id="file" class="hidden"/>
+                        <p class="px-4">A son image, Dieu nous a créés libres</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

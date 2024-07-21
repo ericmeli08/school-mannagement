@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" sizes="500x500" type="image/x-icon" href="/photo/img/logo_fs.jpeg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire </title>
+    <link rel="stylesheet" href="/css/sign_up.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <img src="/photo/img/logo_fs.jpeg" alt="">
+			
+            <p class="error text-red-600 font-bold" th:if="${error}" th:text="${error}"></p>
+			<ul>
+				<li class="nav-item"><a href="" class="nav-link">Acceuil</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+				<li class="nav-item"><a href="" class="nav-link">Sign Up</a></li>
+				<li class="nav-item"><a href="/sign_in" class="nav-link">Sign In</a></li>
+			</ul>
+		</nav>
+        
+        <span class="illustration" ></span>
+        <section>
+            <h1>WELCOME !</h1>
+            <P>Use this awesome form to login or create new account in the librairie for free. <br> tempore totam ve</P>
+        </section>
+
+        <div class="sign-form">
+            <h2>Register with</h2>
+            <div class="log">
+                <div class="img"><img src="/photo/img/icon/facebook.png" alt=""></div>
+                <div class="img"><img src="/photo/img/icon/apple.png" alt=""></div>
+                <div class="img"><img src="/photo/img/icon/google.png" alt=""></div>
+            </div>
+            <span>or</span>
+            <div class="message" th:if="${message != null}">
+                [[${message}]]
+             </div>
+            <form th:action="@{/sign_up}" id="form" method="POST">
+                
+                <div>
+                    <input th:field="${user.username}" type="text" name="nom" id="nom" placeholder="Name" >
+                </div>
+                <div>
+                    <input th:field="${user.email}" type="email" name="email" id="email" placeholder="E-Mail" >
+                </div>
+                <div>
+                    <input th:field="${user.password}" type="password" name="pwd" id="pwd" placeholder="Password" >
+                </div>
+                <div>
+                    <select th:field="${user.role}" name="role">
+                        <option value="PROFESSEUR">Professeur</option>
+                        <option value="ELEVE">Eleve</option>
+                        <option value="ADMIN">Administrateur</option>
+                    </select>
+                </div>
+                <div class="form-check" >
+                    <input type="checkbox" name="check-terms" id="check">
+                    <label for="check"> I agree the <a href="" >Terms and Conditions </a></label>
+                </div>
+               
+                <input type="submit" name="submit" value="SIGN UP">
+                <div class="foot-form">
+                    Already have an account?  <a href="/login">Sign in</a>
+                </div>
+            </form>
+        </div>
+
+        <ul class="foot-nav" >
+            <li><a href="">Librairie</a></li>
+            <li><a href="">A propos</a></li>
+            <li><a href="">Team</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Products</a></li>
+        </ul>
+
+        <div class="foot-text">
+            Copyright © 2024 Soft by Creative Tim.
+        </div>
+
+    </div>
+    <script src="/js/sign_up.js"></script>
+</body>
+</html>

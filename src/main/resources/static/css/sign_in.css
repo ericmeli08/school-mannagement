@@ -1,0 +1,315 @@
+
+:root{
+
+    /* ========== color =========== */
+    --bg-color:#f8f9fa;
+    --color-bg-bold:#cccccc;
+    --color-white:#ffffff;
+    --color-black-logo:#414143;
+    --color-white-logo:#c8c8ca;
+    --color-white-logo-reduce:#c8c8ca74;
+    --color-green-bold:#2d4f4e;
+    --color-green-medium:#345c54;
+    --color-green-yellow:#90ac46;
+    --color-yellow:#d3e543;
+    --color-red:#df7565;
+}
+
+
+
+*,
+*::before,
+*::after {
+	font-family: "Oswald", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--color-white);
+}
+
+.container {
+	height: 100vh;
+	width: 100vw;
+}
+
+/* ===================  header ============================================== */
+header{
+    margin:1rem;
+    display: flex;
+    width: 100%;
+    justify-content:space-between ;
+    align-items: center;
+    height: 80px;
+    background: #acbfff;
+    padding: 1rem;
+    border-radius: 80px;
+    position: fixed;
+    backdrop-filter: saturate(200%) blur(30px);
+    box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
+    background-color: rgba(255, 255, 255, 0.8) ;
+    z-index: 20;
+}
+
+header .logo{
+    width: 30%;
+}
+
+header .logo img{
+    width: 80px;
+    border-radius: 50px;
+}
+
+header nav{
+    width: 40%;
+}
+
+header nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style-type: none;
+}
+
+header nav ul li a{
+   text-decoration: none;
+   font-weight: 400;
+   color: var(--color-black-logo);
+
+}
+
+/* =======================================  main ======================================= */
+
+main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 92vh;
+}
+
+/* =========== aside ============ */
+main aside {
+    width: 45%;
+}
+
+
+main aside .img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: url("/photo/img/curved-images/curved-6.jpg") center center;
+    background-size: cover;
+    transform: skewX(-10deg) translate(15%,-1%);
+    
+}
+
+/* ============ secgion =================== */
+
+main section{
+    display: grid;
+    place-items: center;
+    padding-left: 10%;
+}
+
+main section .error{
+    color: rgba(255, 0, 0, 0.76);
+    font-weight: 800;
+}
+
+
+main section .sign-form{
+    width: 450px;
+    height: 600px;
+    margin-top: 100px;
+    margin-left: 37%;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    position: relative;
+}
+
+main section .sign-form h1{
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    font-size: 2rem;
+    font-weight: 800;
+    background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+main section .sign-form .text{
+    position: absolute;
+    top: 90px;
+    left: 5%;
+    font-size: 1.2rem;
+    color: #a8a8aa;
+}
+
+main section .sign-form form .error{
+    position: absolute;
+    top: -45px;
+    left: 16%;
+    font-size: 0.9rem;
+    color: Red;
+    background-color: rgba(210, 107, 107, 0.556);
+    border-radius: 10px;
+   padding:0.6rem 1rem;
+}
+
+main section .sign-form form{
+    position: absolute;
+    width: 90%;
+    height: 200px;
+    top: 170px;
+    left: 5%;
+}
+
+main section .sign-form form div{
+    margin-bottom: 2rem;
+    line-height: 35px;
+}
+
+main section .sign-form form div input{
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    color: var(--color-green-medium);
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d2d6da;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+main section .sign-form form div input:focus{
+    outline: none;
+}
+
+ .form-check {
+    display: flex;
+    padding-left: 1.73em;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.form-check label a{
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+#check {
+    display: none;
+  }
+  
+  input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px; 
+    background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+    border-radius: 4px; 
+  }
+  
+  input[type="checkbox"]:checked + label:before {
+    background-image: linear-gradient(310deg, blue 0%, blue 100%);
+  }
+  
+  input[type="checkbox"] + label:after {
+    content: '\2713'; 
+    position: absolute;
+    top: 50%;
+    left: 5px; 
+    transform: translateY(-50%);
+    color: #fff; 
+    font-size: 15px; 
+    display: none; 
+  }
+  
+  input[type="checkbox"]:checked + label:after {
+    display: block;
+  }
+
+input[type="submit"]{
+    text-transform: uppercase;
+    box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11), 0 2px 4px -1px rgba(0, 0, 0, 0.07);
+    background-size: 150%;
+    background-position-x: 25%;
+    width: 100%;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease-in;
+}
+
+input[type="submit"]:hover{
+    transform: scale(1.05);
+}
+
+
+.foot-form{
+    color: #3a416fb2;
+}
+
+.foot-form a{
+    background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.foot-nav{
+    display: flex;
+    list-style-type: none;
+    margin: 70px 30% 70px 30%;
+    justify-content: space-evenly;
+} 
+
+.foot-nav li a{
+    color: #ccc;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.foot-text{
+    color: #3A416F;
+    margin: 100px 0 100px 40%;
+    height: 100px;
+}
+  

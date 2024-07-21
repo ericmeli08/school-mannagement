@@ -1,0 +1,128 @@
+<th:block th:replace="layouts/header"/>
+                <head>
+                    <span class="p-5 text-xl text-gray-600 font-bold">  GESTION ECOLE </span>
+                </head>
+               
+              
+                <section class="w-full">
+                    <div class="flex flex-row gap-10 px-6 py-8">
+                        <div class=" w-full bg-white rounded-lg ">
+                            <div class="p-6 ">
+    
+                                <form th:object="${ecoleDto}" enctype="multipart/form-data" method="post"  class=" grid gap-5 grid-cols-2" action="">
+                                    <div> 
+                                        <label for="matricule" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Nom de l'etablissement</label>
+                                        <input  type="texte" name="nom" id="matricule"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="Nom de l'etablissement" >
+                                        <p th:if="${#fields.hasErrors('nom')}" th:errorclass="text-red-500" th:errors="${ecoleDto.nom}" > </p>
+                                    </div>
+                                    <div>
+                                        <label for="nom" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Contact</label>
+                                        <input th:field="${ecoleDto.contact}" type="text" name="contact" id="nom"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="Contact" >
+                                            <p th:if="${#fields.hasErrors('contact')}" th:errorclass="text-red-500" th:errors="${ecoleDto.contact}" > </p>
+
+                                    </div>
+                                    <div>
+                                        <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Ville
+                                        </label>
+                                        <input th:field="${ecoleDto.ville}" type="text" name="prenom" id="prenom"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="ville" >
+                                             <p th:if="${#fields.hasErrors('ville')}" th:errorclass="text-red-500" th:errors="${ecoleDto.ville}" > </p>
+                                    </div>
+                                    <div>
+                                        <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Adresse</label>
+                                        <input th:field="${ecoleDto.adresse}" type="text" name="prenom" id="prenom"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="adresse" >
+                                             <p th:if="${#fields.hasErrors('adresse')}" th:errorclass="text-red-500" th:errors="${ecoleDto.adresse}" > </p>
+                                    </div>
+                                    <div>
+                                        <label for="logo" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Logo</label>
+                                        <input  th:field="${ecoleDto.file}"
+                                            type="file" name="logo" id="logo"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="name@company.com" >
+                                            <p th:if="${#fields.hasErrors('file')}" th:errorclass="text-red-500" th:errors="${ecoleDto.file}" > </p>
+
+                                    </div>
+                                    <div>
+                                        <label for="classe" class="block mb-2 text-sm font-medium text-gray-900">
+                                            E-Mail</label>
+                                        <input th:field="${ecoleDto.email}" type="text" name="classe" id="classe"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="name@company.com" >
+                                             <p th:if="${#fields.hasErrors('email')}" th:errorclass="text-red-500" th:errors="${ecoleDto.email}" > </p>
+                                    </div>
+                                    <div>
+                                        <label for="lieunaissance" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Directeur</label>
+                                        <input th:field="${ecoleDto.directeur}" type="text" name="lieunaissance" id="lieunaissance"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="Directeur" >
+                                             <p th:if="${#fields.hasErrors('directeur')}" th:errorclass="text-red-500" th:errors="${ecoleDto.directeur}" > </p>
+                                    </div>
+                                    <div> 
+                                        <label for="lieunaissance" class="block mb-2 text-sm font-medium text-gray-900">
+                                            Annee academique</label>
+                                        <input th:field="${ecoleDto.annee}" type="date" name="lieunaissance" id="lieunaissance"
+                                            class=" w-80 rounded-xl bg-gray-50 border border-gray-300 text-gray-900 focus:ring-primary-600 focus:border-primary-600 block p-2.5 "
+                                            placeholder="name@company.com" >
+                                             <p th:if="${#fields.hasErrors('annee')}" th:errorclass="text-red-500" th:errors="${ecoleDto.annee}" > </p>
+                                    </div>
+                                    <input type="submit" class="p-1.5 h-12 w-60 mt-6 rounded-xl font-bold ease-in hover:bg-blue-900 duration-500 bg-blue-700" value="valider">
+                                
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <div class="flex flex-col gap-5 justify-center items-center bg-white rounded-lg w-96 h-80 ">
+                            <p class="text-center font-bold" >Logo school </p>
+                            <div class=" rounded-full border-4 border-blue-800 bg-white w-24 h-24">
+                                
+                            </div>
+                            <label class="w-32 h-8 flex justify-center items-center hover:bg-blue-900 duration-800 rounded-md font-bold bg-blue-600 " for="input-file">Update logo</label>
+                            <input type="file"class="rounded hidden w-24 h-10 bg-blue-600 p-2.5" id="input-file" />
+                        </div> -->
+                    </div>
+                    
+                </section >
+
+                <div th:if="${ecoles}" class="w-full h-full bg-purple-500 flex pt-2 p-5 flex-col gap-5" >
+                    <span class="ml-1 mt-10 mr-1 w-full rounded h-0.5 bg-gray-400" ></span>
+                    <div>
+                        <table class=" flex flex-col gap-1 table-fixed w-full">
+                            <tr class="flex flex-row mb-0.5 gap-0.5 w-full" >
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Etablissement</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Directeur</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Email</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Adresse</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Annee-Scolaire</td>
+                                <td class="font-bold pl-4 bg-blue-500 w-1/6 text-sm " >Logo</td>
+                            </tr>
+                             <tr th:each="ecole : ${ecoles}" class="flex flex-row mb-0.5 gap-0.5 w-full" >
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${ecole.nom}" >ES23ML0004</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${ecole.directeur}" >NGUETSOP</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${ecole.email}" >LAURINE</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${ecole.adresse}" >feminin</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm " th:text="${#dates.format(ecole.annee,'yyyy-MM-dd')}" >1er Trimestre</td>
+                                <td class="font-bold pl-4 border-2 border-l-gray-300 border-b-gray-300  bg-white w-1/6 text-sm "  ><img width="80"  th:src="@{'/images/' + ${ecole.logo}}" alt=""></td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+
+        <th:block th:replace="layouts/footer"/>
+    </body>
+</html>
